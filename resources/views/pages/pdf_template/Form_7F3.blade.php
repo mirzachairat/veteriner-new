@@ -307,8 +307,8 @@
 
   <body
     style="
-      margin-left: 200px;
-      margin-right: 200px;
+      margin-left: 50px;
+      margin-right: 50px;
       margin-top: 48px;
       margin-bottom: 48px;
     "

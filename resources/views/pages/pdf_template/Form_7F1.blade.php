@@ -403,7 +403,7 @@
         </tr>
         <tr>
           <td>Nama</td>
-          <td>: {{$nama_pemohon}}</td>
+          <td>: {{$nama}}</td>
         </tr>
         <tr>
           <td>Alamat</td>
@@ -441,7 +441,7 @@
             <br />
             <br />
             <br />
-            <span>{{$nama_pemohon}}</span>
+            <span>{{$nama}}</span>
           </div>
         </td>
       </tr>

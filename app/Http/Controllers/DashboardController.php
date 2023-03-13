@@ -12,8 +12,11 @@ use Illuminate\Support\Facades\Auth;
 class DashboardController extends Controller
 {
     public function index(){
-        return view ('dashboard');
+        return view ('dashboard'); 
     }
+
+
+//fungsi ini di panggi menuju halamana view download dokumen dan dokumen proses    
 public function detail($id)
     {
         $jabatan_id = Auth::user()->jabatan_id;
@@ -25,12 +28,12 @@ public function detail($id)
         }
         if($jabatan_id == 2 ){
             $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
-            $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
+            $data_permohonan = Permohonan::with('user')->with('jenis_sampel')->where('id', $id)->get();
             return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok']));
         }
         if($jabatan_id == 3 ){
             $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
-            $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
+            $data_permohonan = Permohonan::with('user')->where('id', $id)->get();
             return view('pages.manager.view_manager',compact(['data_permohonan', 'data_dok']));
 
         }

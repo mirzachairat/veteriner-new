@@ -326,12 +326,12 @@
 margin-left: 50px;
 margin-right: 80px;
 margin-top: 30px;
-margin-bottom: 48px;
+margin-bottom: 48px; 
 ">
     <div class="content">
 
         <div class="header">
-            <table class="has-padding" style="width: 100%">
+            <table style="width: 100%">
               <tr>
                 <td
                   style="
@@ -357,16 +357,14 @@ margin-bottom: 48px;
                     vertical-align: middle !important;
                     background-color: #d4d4d4d4;
                     width: 40%;
-                    padding: 15px 10px 15px;
+                    /* padding: 15px 10px 26px; */
+                    line-height:25px
                   "
                 >
-                  <span class="bold-text">UNIT PELAKSANA TEKNIS DAERAH</span><br />
-                  <span class="bold-text">PELAYANAN DAN PENGUJIAN VETERINER</span
-                  ><br />
-                  <span class="bold-text">DINAS PERTANIAN PROVINSI BANTEN</span><br />
-                  <br />
-                  <span class="bold-text" style="font-size: 35px">FORMULIR</span
-                  ><br />
+                  <span class="bold-text">UNIT PELAKSANA TEKNIS DAERAH</span>
+                  <span class="bold-text">PELAYANAN DAN PENGUJIAN VETERINER</span>
+                  <span class="bold-text">DINAS PERTANIAN PROVINSI BANTEN</span><br>
+                  <span class="bold-text" style="font-size: 30px">FORMULIR</span>
                 </td>
                 <td
                   style="
@@ -428,7 +426,7 @@ margin-bottom: 48px;
                     padding: 15px 10px 15px;
                   "
                 >
-                  <span class="bold-text" style="font-size: 25px"
+                  <span class="bold-text" style="font-size: 20px"
                     >KAJI ULANG PERMINTAAN</span
                   ><br />
                 </td>
@@ -438,9 +436,9 @@ margin-bottom: 48px;
         
         <div class="flex-container" >
             <div class="header-list1">
-                <table style="width: 100%; border-style: hidden;">
+                <table style="width: 100%; border-style: hidden;line-height:30px">
                     <tr>
-                        <td style="width:70%">Tanggal Terima</td>
+                        <td style="width:30%">Tanggal Terima</td>
                         <td>:.....</td>
                     </tr>
                     <tr>
@@ -451,9 +449,9 @@ margin-bottom: 48px;
             
             </div>
             <div class="header-list2">
-                <table style="float:right;width: 100%;border-style: hidden;">
+                <table style="float:right;width: 10%;border-style: hidden;line-height:30px">
                     <tr>
-                        <td style="width: 50%;">No.Contoh Uji</td>
+                        <td style="width: 100%;">No.Contoh Uji</td>
                         <td>:.....</td>
                     </tr>
                     <tr>
@@ -465,41 +463,36 @@ margin-bottom: 48px;
         </div>
         <br>
         
-        <div class="table-content">
+        <div class="table-content" style="margin-top: 60px">
             <div class="container">
                 <table class="has-padding" style="width: 100%;" style>
                     <tr>
                         <td rowspan="2">No</td>
-                        <td rowspan="2">Jenis</td>
+                        <td rowspan="2">Jenis Hewan</td>
                         <td rowspan="2">Jenis Contoh Uji</td>
                         <td rowspan="2">Jumlah Contoh Uji</td>
                         <td rowspan="2">Bahan Pengawet</td>
                         <td colspan="2">Kondisi</td>
                         <td colspan="2">Jumlah Contoh Uji</td>
                         <td rowspan="2">Metode Uji Yang Di Mohon</td>
-                        <td colspan="2">Ketersediaan Alat, Bahan, Media dan SDM (laboratorium)</td>
+                        <!-- <td colspan="2">Ketersediaan Alat, Bahan, Media dan SDM (laboratorium)</td> -->
                     </tr>
                     <tr>
                         <td>Baik</td>
                         <td>Kurang Baik</td>
                         <td>Memenuhi</td>
                         <td>Kurang</td>
-                        <td>Tersedia</td>
-                        <td>Tidak Tersedia</td>
                     </tr>
                     <tr>
                         <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>1</td>
+                        <td>{{$jenis_hewan}}</td>
+                        <td>{{$jenis_sampel}}</td>
+                        <td>{{$jumlah_contoh}}</td>
+                        <td>{{$bahan_pengawet}}</td>
+                        <td colspan="2">{{$kondisi}}</td>
+                        <td colspan="2">{{$kriteria}}</td>
+                        <td>{{$jenis_pengujian}}</td>
+                        
                     </tr>
                 </table>
            </div>
@@ -545,39 +538,39 @@ margin-bottom: 48px;
             <div class="data_sample">
                 <table class="tabel_sample">
                     <tr>
-                        <td style="width:50%">1.Tanggal Penerima</td>
+                        <td style="width:30%">1.Tanggal Penerima</td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">2.Pengiriman Sampel </td>
+                        <td style="width:30%">2.Pengiriman Sampel </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">3.Jenis Sampel </td>
+                        <td style="width:30%">3.Jenis Sampel </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">4.Jumlah Sampel </td>
+                        <td style="width:30%">4.Jumlah Sampel </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">5. Metode Uji </td>
+                        <td style="width:30%">5. Metode Uji </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">6. Biaya Uji </td>
+                        <td style="width:30%">6. Biaya Uji </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">7. Laboratorium </td>
+                        <td style="width:30%">7. Laboratorium </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">8. No. Epid/Contoh Uji </td>
+                        <td style="width:30%">8. No. Epid/Contoh Uji </td>
                         <td>:.....</td>
                     </tr>
                     <tr>
-                        <td style="width:50%">8. Lama Pengujian </td>
+                        <td style="width:30%">8. Lama Pengujian </td>
                         <td>:.....</td>
                     </tr>
                 </table>
@@ -598,7 +591,7 @@ margin-bottom: 48px;
                 <text>Catatan : Bubuhkan tanda </text>
             </div>
             <div class="list_jenis">
-                <table style="font-size:x-small;width:100%;">
+                <table style="font-size:x-small;width:10%;">
                     <tr style="text-align: center;">
                         <td>Jenis Pengujian atau 
                             <br>sifat-sifat yang diukur</td>

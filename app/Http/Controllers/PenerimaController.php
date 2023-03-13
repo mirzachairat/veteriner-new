@@ -56,5 +56,16 @@ class PenerimaController extends Controller
  
          return redirect('/penerima');
      }
+
+     public function view_dokument($id){
+        $data_dok = Dokumen::where('jabatan_id', $jabatan_id)->get();
+        $data_permohonan = Permohonan::with('user')->where('users_id', auth()->id())->where('id', $id)->get();
+        dd($data_permohonan);
+        return view('pages.penerima.view_penerima',compact(['data_permohonan', 'data_dok']));
+     }
+
+     public function download_filef(){
+         
+     }
   
 }

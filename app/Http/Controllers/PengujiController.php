@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Progres;
+use App\Models\Permohonan;
+use App\Models\Jenis_sampel;
 
-class PengujiContoller extends Controller
+class PengujiController extends Controller
 {
     public function index(){
         $data = Progres::with('permohonan')->where('status',3)->get();

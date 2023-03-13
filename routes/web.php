@@ -11,6 +11,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\PenyeliaController;
+use App\Http\Controllers\PengujiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,8 +56,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/penyelia', [PenyeliaController::class, 'index']);
     Route::get('/form/penyelia/{id}', [PenyeliaController::class, 'form_detail']);
     Route::get('/view/penyelia/{id}', [DashboardController::class, 'detail']);
-    Route::post('/penyelia/update', [ManagerController::class, 'update_jenis_sampel']);
-
+    Route::post('/penyelia/update', [PenyeliaController::class, 'update_jenis_sampel']);
+    
+    //Module Penguji
+    Route::get('/penguji', [PengujiController::class, 'index']);
+    Route::get('/form/penguji/{id}', [PengujiController::class, 'form_detail']);
+    Route::get('/view/penguji/{id}', [DashboardController::class, 'detail']);
+    Route::post('/penguji/update', [PengujiController::class, 'update_jenis_sampel']);
 
     // Getdata harga
     Route::get('/daftar_harga', [Jenis_hargaController::class, 'index']);
@@ -64,12 +70,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/daftar_harga/create', [Jenis_hargaController::class, 'store']);
     Route::get('/tambah_form', [Jenis_hargaController::class, 'add_form']);
 
+
     //Dokumen route
 
     Route::get('/download/form_f1/{id}',[DokumenController::class, 'filepdf1']);
-    Route::get('/download/form_f2/',[DokumenController::class, 'filepdf2']);
-    Route::get('/download/form_f3/',[DokumenController::class, 'filepdf3']);
-    Route::get('/dokumen/{path_encoded}', 'DokumenController@index');
+    Route::get('/download/form_f2/{id}',[DokumenController::class, 'filepdf2']);
+    Route::get('/download/form_f3/{id}',[DokumenController::class, 'filepdf3']);
+    Route::get('/dokumen/{form_f6}', 'DokumenController@index');
 
 
 });

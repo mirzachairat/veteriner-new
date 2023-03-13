@@ -25,4 +25,16 @@ class PengirimController extends Controller
         $data_harga = Jenis_harga::get();
         return view('pages.pengirim.form_pengirim', compact('data_harga'));
     }
+
+    public function download_file($id){
+        $permohonan = Permohonan::where('users_id',auth()->id())->where('id',$id)->first();
+        $data_pass = [
+            'nama_pemohon' => $permohonan->nama_pemohon,
+            'alamat' => $permohonan->alamat,
+            'instansi' => $permohonan->instansi,
+            'jenis_hewan' => $permohonan->jenis_hewan
+        ];
+        $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
+        return $pdf->download('Permohonan.pdf');
+    }
 }

@@ -113,8 +113,16 @@
                                                     <label for="instansi">Instansi/Perusahaan</label>                                            
                                                     <div class="input-group">                                 
                                                         <input type="text" class="form-control" name="instansi" id="instansi" placeholder="isi nama instansi atau perusahaan">
-                                                    </div>                               
+                                                    </div>                              
                                                 </div><!--end form-group-->  
+
+                                                <div class="form-group mb-2">
+                                                    <label for="alamat">alamat</label>                                            
+                                                    <div class="input-group">                                 
+                                                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="isi alamat">
+                                                    </div>                              
+                                                </div><!--end form-group-->  
+                                                
                                                 <div class="form-group mb-2">
                                                     <label for="jabatan">Jabatan</label>                                            
                                                     <div class="input-group">                                 

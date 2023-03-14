@@ -37,17 +37,19 @@ class UserController extends Controller
     public function create_user(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'nama' => 'required',
             'email' => ['required','unique:users','email'],
             'password' => 'required'
         ]);
 
         $user = User::create([
-            'name' => trim($request->input('name')),
+            'nama' => trim($request->input('nama')),
             'email' => strtolower($request->input('email')),
             'password' => bcrypt($request->input('password')),
             'no_hp' => $request->input('no_hp'),
             'jabatan_id' => 1,
+            'instansi' => $request->input('instansi'),
+            'alamat' => $request->input('alamat'),
             'longitude' => $request->input('longitude'),
             'latitude' => $request->input('latitude')
         ]);

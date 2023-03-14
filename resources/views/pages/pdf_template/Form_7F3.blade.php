@@ -309,7 +309,7 @@
     style="
       margin-left: 50px;
       margin-right: 50px;
-      margin-top: 48px;
+      margin-top: 28px;
       margin-bottom: 48px;
     "
   >
@@ -420,89 +420,94 @@
       </table>
     </div>
 
-      <div class="paragraf">
-        <text
-          >Pada hari ini ......... tanggal .......... bulan ........ tahun
-          ........ kami yang bertanda tangan dibawah ini:
-        </text>
-        <br />
-        <br />
-        <table style="width: 100%; border-style: hidden">
-          <tr>
-            <td rowspan="4" style="font-size: 18px; vertical-align: top">I.</td>
-            <td>Nama</td>
-            <td>: ...................................................</td>
-          </tr>
-          <tr>
-            <td>Jabatan</td>
-            <td>: ...................................................</td>
-          </tr>
-          <tr>
-            <td>Perusahaan</td>
-            <td>: ...................................................</td>
-          </tr>
-          <tr>
-            <td>Alamat</td>
-            <td>: ...................................................</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td colspan="2">
-              <span
-                >Selanjutnya disebut sebagai
-                <span style="font-weight: bold">PIHAK PERTAMA</span></span
-              >
-            </td>
-          </tr>
-        </table>
-        <br />
-        <table style="width: 100%; border-style: hidden">
-          <tr>
-            <td rowspan="4" style="font-size: 18px; vertical-align: top">
-              II.
-            </td>
-            <td>Nama</td>
-            <td>: ...................................................</td>
-          </tr>
-          <tr>
-            <td>Jabatan</td>
-            <td>: ...................................................</td>
-          </tr>
-          <tr>
-            <td>Instansi</td>
-            <td style="font-weight: bold">
-              : UPTD PELAYANAN DAN PENGUJIAN VETERINER (UPTD PPV)
-            </td>
-          </tr>
-          <tr>
-            <td>Alamat</td>
-            <td>
-              : Jl. Raya Cilegon KM. 04 Desa Drangong Kec. Taktakan Kota Serang
-              42162
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td colspan="2">
-              <span
-                >Selanjutnya disebut sebagai
-                <span style="font-weight: bold"> PIHAK KEDUA </span></span
-              >
-            </td>
-          </tr>
-        </table>
-        <br />
-        <p>
-          Dengan ini kedua belah pihak sepakat melakukan kontrak pengujian.
-          PIHAK PERTAMA menyerahkan pekerjaan pengujian kepada PIHAK KEDUA,
-          PIHAK KEDUA menerima pekerjaan pengujian dari PIHAK PERTAMA sebagai
-          berikut:
-        </p>
+      <div class="paragraf" style="margin-top:50px">
+          <text
+            >Pada hari ini ......... tanggal .......... bulan ........ tahun
+            ........ kami yang bertanda tangan dibawah ini:
+          </text>
+          <br />
+          <br />
+            <table style="width: 100%; border-style: hidden">
+              <tr>
+                <td rowspan="4" style="font-size: 18px; vertical-align: top">I.</td>
+                <td>Nama</td>
+                <td>:</td>
+                <td>{{$nama}}</td>
+              </tr>
+              <tr>
+                <td>Jabatan</td>
+                <td>:</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Perusahaan</td>
+                <td>:</td>
+                <td>{{$instansi}}</td>
+              </tr>
+              <tr>
+                <td>Alamat</td>
+                <td>: ...................................................</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">
+                  <span
+                    >Selanjutnya disebut sebagai
+                    <span style="font-weight: bold">PIHAK PERTAMA</span></span
+                  >
+                </td>
+              </tr>
+            </table>
+            <br />
+            <table style="width: 100%; border-style: hidden">
+              <tr>
+                <td rowspan="4" style="font-size: 18px; vertical-align: top">
+                  II.
+                </td>
+                <td>Nama</td>
+                <td>:</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Jabatan</td>
+                <td>:</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Instansi</td>
+                <td style="font-weight: bold">
+                  : UPTD PELAYANAN DAN PENGUJIAN VETERINER (UPTD PPV)
+                </td>
+              </tr>
+              <tr>
+                <td>Alamat</td>
+                <td>
+                  : Jl. Raya Cilegon KM. 04 Desa Drangong Kec. Taktakan Kota Serang
+                  42162
+                </td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">
+                  <span
+                    >Selanjutnya disebut sebagai
+                    <span style="font-weight: bold"> PIHAK KEDUA </span></span
+                  >
+                </td>
+              </tr>
+            </table>
+          <br />
+          <p>
+            Dengan ini kedua belah pihak sepakat melakukan kontrak pengujian.
+            PIHAK PERTAMA menyerahkan pekerjaan pengujian kepada PIHAK KEDUA,
+            PIHAK KEDUA menerima pekerjaan pengujian dari PIHAK PERTAMA sebagai
+            berikut:
+          </p>
       </div>
       <br />
       <div class="table-content">
         <div class="container">
-          <table class="has-padding" style="width: 100%" style>
+          <table style="width: 100%">
             <tr>
               <th>No.</th>
               <th>Kode Sampel</th>
@@ -511,14 +516,16 @@
               <th>Tarif Uji</th>
               <th>Keterangan</th>
             </tr>
+            @foreach($jenis_sampel as $key=>$item)
             <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
+              <td>{{$key+1}}</td>
+              <td></td>
+              <td>{{$item->jenis_sampel}}</td>
+              <td>{{$item->jenis_pengujian}}</td>
+              <td>{{$item->total_harga}}</td>
+              <td></td>
             </tr>
+            @endforeach
           </table>
           <br />
           <p>
@@ -536,26 +543,23 @@
       </div>
 
       <div class="tanda_tangan">
-        <table style="border-style: hidden">
+        <table style="border-style: hidden; width:100%">
           <tr>
-            <td style="width: 85%">
+            <td style="width: 65%">
               <span style="font-weight: bold">PIHAK PERTAMA</span><br />
               <span>Pelanggan</span>
-              <br />
-              <br />
               <br />
               <br />
 
               <br /><br /><br /><br />
 
-              <span>.......................</span>
+              <span>{{$nama}}</span>
             </td>
-            <td style="float: right; width: 100%">
+            <td>
               <span style="font-weight: bold">PIHAK KEDUA</span><br />
               <span>UPTD PPV</span><br />
               <br />
-              <br />
-              <br />
+              
               <br />
 
               <br /><br /><br /><br />

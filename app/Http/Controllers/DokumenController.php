@@ -12,6 +12,9 @@ use App\Models\Permohonan;
 use App\Models\Jenis_sampel;
 use Barryvdh\DomPDF\Facade\Pdf;
 
+use Illuminate\Support\Facades\Auth;
+
+
 class DokumenController extends Controller
 {
     public function filepdf1($id)
@@ -26,38 +29,41 @@ class DokumenController extends Controller
         $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
         return $pdf->download('Permohonan.pdf');
     }
-    public function filepdf2($id)
+    public function filepdf($id)
     {
+        $user = Auth::user()->id;
+        $user_data = User::where('id',$user)->get();
         $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
-        $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)->first();
-            $data_pass = [
-                'jenis_hewan' => $permohonan->jenis_hewan,
-                'jenis_sampel' => $jenis->jenis_sampel,
-                'jumlah_contoh' => $jenis->jumlah_contoh,
-                'bahan_pengawet' => $jenis->bahan_pengawet,
-                'kondisi' => $jenis->kondisi,
-                'kriteria' => $jenis->kriteria, 
-                'jenis_pengujian' => $jenis->jenis_pengujian,
-            ];
-        $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
-        return $pdf->download('Penerima.pdf');
-    }
-    public function filepdf3($id)
-    {
-        $permohonan = Permohonan::with('jenis_sampel')->where('id',$id)->first();
-        return $permohonan;
-        $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)->first();
-        return $permohonan;
+        $jenis = Jenis_sampel::where('permohonan_id', $permohonan->id)->get();
         $data_pass = [
-            'nama_pemohon' => $permohonan->nama_pemohon,
-            'alamat' => $permohonan->alamat,
-            'instansi' => $permohonan->instansi,
-            'jenis_hewan' => $permohonan->jenis_hewan,
-            'jenis_sampel' => $jenis->jenis_sampel,
-
-        ];
-        $pdf = Pdf::loadView('pages.pdf_template.Form_7F3', $data_pass);
-        return $pdf->download('Kontrak Pengujian.pdf');
+                'nama' => $permohonan->nama,
+                'instansi' => $permohonan->instansi,
+                'jenis_hewan' => $permohonan->jenis_hewan,
+                'alamat' => $permohonan->alamat,
+                'instansi' => $permohonan->instansi,
+                'jenis_hewan' => $permohonan->jenis_hewan,
+                'jenis' => $jenis
+                // 'jenis_sampel' => $jenis->jenis_sampel,
+                // 'jumlah_contoh' => $jenis->jumlah_contoh,
+                // 'bahan_pengawet' => $jenis->bahan_pengawet,
+                // 'kondisi' => $jenis->kondisi,
+                // 'kriteria' => $jenis->kriteria, 
+                // 'jenis_pengujian' => $jenis->jenis_pengujian,
+                // 'total_harga' => $jenis->total_harga,
+            ];
+            
+        if($user == 1){
+            $pdf = Pdf::loadView('pages.pdf_template.Form_7F1', $data_pass);
+            return $pdf->download('Pemohon.pdf');
+            }
+        if($user == 2){
+            $pdf = Pdf::loadView('pages.pdf_template.Form_7F2', $data_pass);
+            return $pdf->download('Penerima.pdf');
+            }
+        if($user == 3){
+            $pdf = Pdf::loadView('pages.pdf_template.Form_7F3',$data_pass);
+            return $pdf->download('Kontrak Pengujian.pdf');
+        }
     }
 
     public function dokumentasi()

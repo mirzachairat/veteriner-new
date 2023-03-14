@@ -73,13 +73,13 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="bahan_pengawet">Bahan Pengawet</label>
-                                                        <input type="text" class="form-control input-total_harga" id="bahan_pengawet-0" name="bahan_pengawet[]">
+                                                        <input type="text" class="form-control input-total_harga" id="bahan_pengawet-0" name="bahan_pengawet[]" required>
                                                     </div>
                                                 </div> 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="kondisi-0">Kondisi Contoh Uji</label>
-                                                        <select type="text" class="form-control" id="kondisi-0" name="kondisi[]">
+                                                        <select type="text" class="form-control" id="kondisi-0" name="kondisi[]" required>
                                                             <option value selected disabled>=== PILIH KONDISI CONTOH UJI ===</option>
                                                                 <option value="baik">Baik</option>
                                                                 <option value="kurang baik">Kurang Baik</option>
@@ -89,7 +89,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="kriteria-0">KRITERIA</label>
-                                                        <select type="text" class="form-control" id="kriteria-0" name="kriteria[]">
+                                                        <select type="text" class="form-control" id="kriteria-0" name="kriteria[]" required>
                                                             <option value selected disabled>=== PILIH KRITERIA ===</option>
                                                                 <option value="memenuhi">Memenuhi</option>
                                                                 <option value="kurang baik">Kurang Memenuhi</option>

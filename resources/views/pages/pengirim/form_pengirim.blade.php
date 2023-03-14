@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">APPROVAL MANAGER</h4>
+                <h4 class="card-title">FORM PERMOHONAN</h4>
                 <p class="text-muted mb-0">Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each
                     textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code class="highlighter-rouge">type</code>.
                 </p>
@@ -25,7 +25,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="jenis_sampel">Contoh Uji/Jenis Sampel</label>
-                                            <input type="text" class="form-control" id="jenis_sampel" name="jenis_sampel[0]">
+                                            <input type="text" class="form-control" id="jenis_sampel" name="jenis_sampel">
                                         </div>
                                     </div>      
                                     <div class="card-body">
@@ -64,18 +64,18 @@
                                                     </div>
                                                 </div> 
                                                 <input type="hidden" value = "0" id="status" name="status" >    
-                                                <div class="col-md-2">
-                                                    <div class="form-group">
-                                                        <span class="btn btn-primary add-btn">Tambah</span>
-                                                    </div>
-                                                </div>                                           
                                             </div>
                                         </div>
                                     </div><!--end card-body-->
+                                    <div class="col-md-2" style="float:right">
+                                        <div class="form-group">
+                                            <span class="btn btn-primary add-btn">Tambah</span>
+                                        </div>
+                                    </div>                                           
                                 </div><!--end card-->
                             </div><!--end col-->
                             <!-- END contoh UJI     -->
-                            <button style="float:left" type="submit" class="btn btn-primary">Simpan</button>
+                            <button style="float:right; margin-right:30px;" type="submit" class="btn btn-danger btn-lg">Simpan</button>
                         </form>
                     </div>
                 </div>                                                                      
@@ -87,6 +87,7 @@
 
 @section('script')
 <script type="text/javascript">
+
     $(".add-btn").click(function(){
         let key = uuidv4();
 
@@ -127,7 +128,6 @@
 
                 <div class="col-md-2">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-primary">Tambah</button>
                         <button type="button" class="btn btn-danger" onclick="removeRow('${key}')">Remove</button>
                     </div>
                 </div>
@@ -140,7 +140,6 @@
             (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
         );
     }
-
 
     function removeRow(key){
         if(key !== 0){

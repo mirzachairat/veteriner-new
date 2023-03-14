@@ -21,11 +21,10 @@ class PermohonanController extends Controller
             'nama' => Auth::user()->nama,
             'jenis_hewan' => $request->jenis_hewan,
         ]);
-
-        foreach ($request->jenis_sampel as $index => $item) {
+        foreach ($request->jenis_pengujian as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $permohonan->id,
-                'jenis_sampel' => $request->jenis_sampel[$index],
+                'jenis_sampel' => $request->jenis_sampel,
                 'jenis_pengujian' => $request->jenis_pengujian[$index],
                 'jumlah_contoh' => $request->jumlah_contoh[$index],
                 'harga_satuan' => $request->harga_satuan[$index],

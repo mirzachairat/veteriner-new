@@ -282,11 +282,11 @@
         flex-direction: row;
     }    
 
-.flex-container div {
-  width: 100%;
-  margin: 0;
-  text-align: left;
-  font-size: 15px;
+.flex-container > div {
+    background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
 }
 
 .header-list1 tr td {
@@ -313,6 +313,12 @@
     float: right
 }
 .tanda_tangan tr td{
+    border-style: none;
+}
+.tanggal_surat{
+    border-style: none;
+}
+.tanggal_surat tr td{
     border-style: none;
 }
 .td_pj{
@@ -433,37 +439,30 @@ margin-bottom: 48px;
               </tr>
             </table>
           </div>
-        
-        <div class="flex-container" >
-            <div class="header-list1">
-                <table style="width: 100%; border-style: hidden;line-height:30px">
-                    <tr>
-                        <td style="width:30%">Tanggal Terima</td>
-                        <td>:.....</td>
-                    </tr>
-                    <tr>
-                        <td>Tanggal Diserahkan Ke MT</td>
-                        <td>:.....</td>
-                    </tr>
-                </table>
-            
-            </div>
-            <div class="header-list2">
-                <table style="float:right;width: 10%;border-style: hidden;line-height:30px">
-                    <tr>
-                        <td style="width: 100%;">No.Contoh Uji</td>
-                        <td>:.....</td>
-                    </tr>
-                    <tr>
-                        <td>No.Epi</td>
-                        <td>:.....</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
         <br>
-        
-        <div class="table-content" style="margin-top: 60px">
+        <div class="tanggal_surat"></div>
+          <table style="width: 100%;line-height: 30px;" class="tanggal_surat" >
+            <tr>
+                <tr>
+                    <td>Tanggal Terima</td>
+                    <td style="width: 25%;">:</td>
+                    <td style="width: 1%;"></td>
+                    <td >No.Contoh Uji</td>
+                    <td style="width: 20%;">:</td>
+                </tr>
+                <tr>
+                    <td>Tanggal diserahkan ke MT</td>
+                    <td style="width: 25%;">:</td>
+                    <td style="width: 1%;"></td>
+                    <td>No.Epi</td>
+                    <td style="width: 20%;">:</td>
+                </tr>
+            </tr>
+            <tr>
+            </tr>
+          </table>
+
+        <div class="table-content" style="margin-top: 30px">
             <div class="container">
                 <table class="has-padding" style="width: 100%;" style>
                     <tr>
@@ -483,25 +482,27 @@ margin-bottom: 48px;
                         <td>Memenuhi</td>
                         <td>Kurang</td>
                     </tr>
+                    @foreach($jenis as $item)
                     <tr>
                         <td>1</td>
                         <td>{{$jenis_hewan}}</td>
-                        <td>{{$jenis_sampel}}</td>
-                        <td>{{$jumlah_contoh}}</td>
-                        <td>{{$bahan_pengawet}}</td>
-                        <td colspan="2">{{$kondisi}}</td>
-                        <td colspan="2">{{$kriteria}}</td>
-                        <td>{{$jenis_pengujian}}</td>
+                        <td>{{$item->jenis_sampel}}</td>
+                        <td>{{$item->jumlah_contoh}}</td>
+                        <td>{{$item->bahan_pengawet}}</td>
+                        <td colspan="2">{{$item->kondisi}}</td>
+                        <td colspan="2">{{$item->kriteria}}</td>
+                        <td>{{$item->jenis_pengujian}}</td>
                         
                     </tr>
+                    @endforeach
                 </table>
            </div>
         </div>
     
         <div class="tanda_tangan">
-            <table style=" border-style: hidden">
+            <table style=" border-style: hidden; width: 100%;" >
                 <tr>
-                    <td style="width: 100%;">
+                    <td style="width: 60%;">
                             <span>Penerima Contoh Uji</span><br />
                            
                             <br />
@@ -513,7 +514,7 @@ margin-bottom: 48px;
                         
                             <span>.......................</span>
                     </td>
-                    <td style="float: right;width:100%">
+                    <td>
                             <span>Serang,...................</span><br />
                             <span>Pengirim Contoh Uji</span><br />
                            
@@ -534,155 +535,155 @@ margin-bottom: 48px;
             <text>Data Sampel/Contoh : Ruang Lingkup Akreditasi</text>
         </div>
     
-        <div class="flex-container" >
-            <div class="data_sample">
-                <table class="tabel_sample">
+        <div class="data_sample">
+            <table class="tabel_sample">
+                <tr>
+                    <td style="width:30%">1.Tanggal Penerima</td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">2.Pengiriman Sampel </td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">3.Jenis Sampel </td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">4.Jumlah Sampel </td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">5. Metode Uji </td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">6. Biaya Uji </td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">7. Laboratorium </td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">8. No. Epid/Contoh Uji </td>
+                    <td>:.....</td>
+                </tr>
+                <tr>
+                    <td style="width:30%">8. Lama Pengujian </td>
+                    <td>:.....</td>
+                </tr>
+            </table>
+            <table style="font-size:x-small;width:50%;">
+                <tr style="text-align: center;">
+                    <td>Jenis Pengujian atau 
+                        <br>sifat-sifat yang diukur</td>
+                    <td>Metode Pengujian, teknik yang di gunakan</td>
+                    
+                </tr>
+                <tr>
                     <tr>
-                        <td style="width:30%">1.Tanggal Penerima</td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Seriologi</span><br>
+                            <span>Rose Bengal Test(RBT)</span><br>
+                        </td>
+                        <td>OIE Terrestrial Manual 2018, Chapter 3.1.4:368-369</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">2.Pengiriman Sampel </td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Pulorum test</span><br>
+                        </td>
+                        <td>OIE Terrestrial Manual 2018, Chapter 3.3.11:922-923</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">3.Jenis Sampel </td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk Ai</span><br />
+                        </td>
+                        <td>OIE Terrestrial Manual 2018, Chapter 3.3.4:830-831</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">4.Jumlah Sampel </td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk ND</span><br>
+                            <td>OIE Terrestrial Manual 2018, Chapter 3.3.14:970-971</td>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="width:30%">5. Metode Uji </td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Parasitologi:</span><br>
+                            <span>Uji Sedimentasi (telur cacing Fasiola sp paramphistomum)</span><br />
+                        </td>
+                        <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 38-51</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">6. Biaya Uji </td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Uji Kualitatif telur cacing</span><br>
+                        </td>
+                        <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 34-37</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">7. Laboratorium </td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Formaldehyde</span><br>
+                        </td>
+                        <td>7IK 1.7(Kuantitatif)</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">8. No. Epid/Contoh Uji </td>
-                        <td>:.....</td>
+                        <td>
+                            <span>Total Plate Count (TPC)</span><br>
+                        </td>
+                        <td>SNI 2987:2008, butir 1</td>
                     </tr>
                     <tr>
-                        <td style="width:30%">8. Lama Pengujian </td>
-                        <td>:.....</td>
-                    </tr>
-                </table>
-                <br>
-                <br>
-                <table class="ceklist_tabel" width="80%">
-                    <tr>
-                        <th>Dilanjutkan</th>
-                        <th>Disubkontrak</th>
-                        <th>Tidak Dapat Dilakukan Pengujian</th>
+                        <td>
+                            <span>Coliform</span><br>
+                        </td>
+                        <td>ISO 16649-2:2001</td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>      
-                </table>
-                <text>Catatan : Bubuhkan tanda </text>
-            </div>
-            <div class="list_jenis">
-                <table style="font-size:x-small;width:10%;">
-                    <tr style="text-align: center;">
-                        <td>Jenis Pengujian atau 
-                            <br>sifat-sifat yang diukur</td>
-                        <td>Metode Pengujian, teknik yang di gunakan</td>
-                        
+                        <td>
+                            <span>E Coli</span><br>
+                        </td>
+                        <td>ISO 16649-2:2001</td>
                     </tr>
                     <tr>
-                        <tr>
-                            <td>
-                                <span>Seriologi</span><br>
-                                <span>Rose Bengal Test(RBT)</span><br>
-                            </td>
-                            <td>OIE Terrestrial Manual 2018, Chapter 3.1.4:368-369</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Pulorum test</span><br>
-                            </td>
-                            <td>OIE Terrestrial Manual 2018, Chapter 3.3.11:922-923</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk Ai</span><br />
-                            </td>
-                            <td>OIE Terrestrial Manual 2018, Chapter 3.3.4:830-831</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Haemoaglutianation/ Haemoaglutianation Inhibition test untuk ND</span><br>
-                                <td>OIE Terrestrial Manual 2018, Chapter 3.3.14:970-971</td>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Parasitologi:</span><br>
-                                <span>Uji Sedimentasi (telur cacing Fasiola sp paramphistomum)</span><br />
-                            </td>
-                            <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 38-51</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Uji Kualitatif telur cacing</span><br>
-                            </td>
-                            <td>3.3 Manual Standar Metode Diagnosa Laboratorium Kesehatan Hewan Tahun 1990 Hal 34-37</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Formaldehyde</span><br>
-                            </td>
-                            <td>7IK 1.7(Kuantitatif)</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Total Plate Count (TPC)</span><br>
-                            </td>
-                            <td>SNI 2987:2008, butir 1</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Coliform</span><br>
-                            </td>
-                            <td>ISO 16649-2:2001</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>E Coli</span><br>
-                            </td>
-                            <td>ISO 16649-2:2001</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Salmonelia sp</span><br>
-                            </td>
-                            <td>SNI 2987:2008, butir 4</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Indetifikasi spesies babi(pork)</span><br>
-                            </td>
-                            <td>User Manual IQ Plus tm, User manual Procine ingredient Reagent Set Tahun 2012(Poumerase Chain Reaction)</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Identifikasi Avian Influenza</span><br>
-                            </td>
-                            <td>User Manual IQ Plus tm, User Manual Pockit  Avian Influenza H5 Detection KIT H5 Detection KIT Tahun 2012(Polymerase Chain Reaction)</td>
-                        </tr>
+                        <td>
+                            <span>Salmonelia sp</span><br>
+                        </td>
+                        <td>SNI 2987:2008, butir 4</td>
                     </tr>
-                </table>
-            </div>
+                    <tr>
+                        <td>
+                            <span>Indetifikasi spesies babi(pork)</span><br>
+                        </td>
+                        <td>User Manual IQ Plus tm, User manual Procine ingredient Reagent Set Tahun 2012(Poumerase Chain Reaction)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Identifikasi Avian Influenza</span><br>
+                        </td>
+                        <td>User Manual IQ Plus tm, User Manual Pockit  Avian Influenza H5 Detection KIT H5 Detection KIT Tahun 2012(Polymerase Chain Reaction)</td>
+                    </tr>
+                </tr>
+            </table>
+            <br>
+            <br>
+            <table class="ceklist_tabel" width="40%">
+                <tr>
+                    <td>Dilanjutkan</td>
+                    <td>Disubkontrak</td>
+                    <td>Tidak Dapat Dilakukan Pengujian</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>      
+            </table>
+            <text>Catatan : Bubuhkan tanda </text>
         </div>
+        <div class="list_jenis">
+           
+        </div>
+
         <div class="td_pj" >
                 <table>
                     <tr>

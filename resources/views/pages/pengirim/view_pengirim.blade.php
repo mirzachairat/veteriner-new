@@ -138,7 +138,7 @@
                                                 @foreach($data_dok as $item)
                                                      <div class="file-box">
                                                         @foreach($data_permohonan as $fs)
-                                                        <a href="{{env('APP_URL')}}/download/form_f1/{{$fs->id}}" class="download-icon-link">
+                                                        <a href="{{env('APP_URL')}}/download/form/{{$fs->id}}" class="download-icon-link">
                                                             <i class="dripicons-download file-download-icon"></i>
                                                         </a>
                                                         @endforeach    

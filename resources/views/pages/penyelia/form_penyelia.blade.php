@@ -3,7 +3,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">APPROVAL PENYELIA</h4>
+                <h4 class="card-title">INPUT PERMOHONAN PENERIMA</h4>
                 <p class="text-muted mb-0">Here are examples of <code class="highlighter-rouge">.form-control</code> applied to each
                     textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code class="highlighter-rouge">type</code>.
                 </p>
@@ -21,12 +21,17 @@
                                     <input class="form-control" type="text" value="{{$item->jenis_hewan}}"name="jenis_hewan[]" id="hewan-0">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="no_epi" class="col-sm-2 col-form-label text-right">Nomor Epi</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" type="text" name="no_epi" id="no_epi">
+                                </div>
+                            </div>
                             <!-- Contoh UJI/Jenis_sampel -->
                             <div class="col-lg-12">
                                 <div class="card">
                                     @foreach($data_sample as $sampel)
                                     <input class="form-control" type="text" id="permohonan_id-0" name="permohonan_id[]" value="{{$sampel->permohonan_id}}" hidden>
-                                    <input class="form-control" type="text" id="jenis_sampel_id-0" name="jenis_sampel_id[]" value="{{$sampel->id}}" hidden>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="jenis_sampel">Contoh Uji/Jenis Sampel</label>
@@ -44,7 +49,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-    
+                                                
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="jumlah_contoh">Jumlah Contoh Uji</label>
@@ -68,14 +73,14 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="bahan_pengawet">Bahan Pengawet</label>
-                                                        <input type="text" class="form-control input-total_harga" id="bahan_pengawet-0" value="{{$sampel->bahan_pengawet}}" name="bahan_pengawet[]">
+                                                        <input type="text" class="form-control input-total_harga" value="{{$sampel->bahan_pengawet}}" id="bahan_pengawet-0" name="bahan_pengawet[]">
                                                     </div>
                                                 </div> 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="kondisi-0">Kondisi Contoh Uji</label>
                                                         <select type="text" class="form-control" id="kondisi-0" name="kondisi[]">
-                                                                <option value="baik">{{$sampel->kondisi}}</option>
+                                                                <option value="{{$sampel->kondisi}}">{{$sampel->kondisi}}</option>>Baik</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -83,13 +88,19 @@
                                                     <div class="form-group">
                                                         <label for="kriteria-0">KRITERIA</label>
                                                         <select type="text" class="form-control" id="kriteria-0" name="kriteria[]">
-                                                                <option value="memenuhi">{{$sampel->kriteria}}</option>
+                                                                <option value="{{$sampel->kriteria}}">{{$sampel->kriteria}}</option>
                                                         </select>
                                                     </div>
-                                                </div>  
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="nilai">Ha/Hi Al</label>
+                                                        <input type="text" class="form-control input-nilai" id="nilai-0" name="nilai[]">
+                                                    </div>
+                                                </div>
                                                 <input type="hidden" value = "2" id="status_delete" name="status_delete" >                                            
-                                                <input type="hidden" value = "3" id="status" name="status" >     
-                                                <input type="hidden" value = "4" id="workflow_id" name="workflow_id" >                                      
+                                                <input type="hidden" value = "3" id="status" name="status" >                                            
+                                                <input type="hidden" value = "4" id="workflow_id" name="workflow_id" >                                            
                                             </div>
                                         </div>
                                     </div><!--end card-body-->

@@ -55,7 +55,6 @@ Route::middleware(['auth'])->group(function () {
     //Module Penyelia
     Route::get('/penyelia', [PenyeliaController::class, 'index']);
     Route::get('/form/penyelia/{id}', [PenyeliaController::class, 'form_detail']);
-    Route::get('/view/penyelia/{id}', [DashboardController::class, 'detail']);
     Route::post('/penyelia/update', [PenyeliaController::class, 'update_jenis_sampel']);
     
     //Module Penguji
@@ -73,9 +72,7 @@ Route::middleware(['auth'])->group(function () {
 
     //Dokumen route
 
-    Route::get('/download/form_f1/{id}',[DokumenController::class, 'filepdf1']);
-    Route::get('/download/form_f2/{id}',[DokumenController::class, 'filepdf2']);
-    Route::get('/download/form_f3/{id}',[DokumenController::class, 'filepdf3']);
+    Route::get('/download/form/{id}',[DokumenController::class, 'filepdf']);
     Route::get('/dokumen/{form_f6}', 'DokumenController@index');
 
 

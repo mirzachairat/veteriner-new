@@ -88,7 +88,6 @@
                                                 </div> <!--end form-group-->                           
                                             </form><!--end form-->
                                             <div class="m-3 text-center text-muted">
-                                                <p class="mb-0">Don have an account ?  <a href="auth-register.html" class="text-primary ml-2">Free Resister</a></p>
                                             </div>
                                         </div>
                                         <div class="tab-pane px-3 pt-3" id="Register_Tab" role="tabpanel">

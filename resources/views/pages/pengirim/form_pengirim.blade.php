@@ -67,6 +67,15 @@
                                             </div>
                                         </div>
                                     </div><!--end card-body-->
+                                    <div style="float: right">
+                                        <div class="form-group row">
+                                            <label for="jumlah_seluruhya" class="col-sm-6 col-form-label text-right">Jumlah Seluruhnya</label>
+                                            <div class="col-sm-4">
+                                                <input class="form-control"  type="text" id="jumlah_seluruhnya" name="jumlah_seluruhnya">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                     <div class="col-md-2" style="float:right">
                                         <div class="form-group">
                                             <span class="btn btn-primary add-btn">Tambah</span>
@@ -90,7 +99,6 @@
 
     $(".add-btn").click(function(){
         let key = uuidv4();
-
         $(".jenis_uji").append(
             `<div class="row row-sample-${key} align-items-center">
                 <div class="col-md-4">
@@ -145,18 +153,31 @@
         if(key !== 0){
             $(`.row-sample-${key}`).remove();
         }
+        totalHarga();
     } 
 
     function totalHarga(key){
         const jumlah = $(`#jumlah_contoh-${key}`).val();
         const harga = $(`#harga_satuan-${key}`).val()
-    
-        let total = parseFloat(jumlah * harga)
+        let total = parseFloat(jumlah * harga);
+        
         if(total === NaN || total === undefined){
             total = 0
         }
-
         $(`#total_harga-${key}`).val(total)
+        // let sum_total = harga
+        let sum_total = 0;
+        // const values = $("input[name='total_harga[]']")
+            
+        // console.log({ values})
+        // // values.map(item => {
+        // //     total += item.val()
+        // // })
+        $('input[name="total_harga[]"]').each( function() {
+            sum_total += parseInt(this.value);
+        });
+
+        $('#jumlah_seluruhnya').val(sum_total);
     }
 
     function getPrice(key){
@@ -175,6 +196,7 @@
             } 
         });
     }
+
 
     // $('#jenis_pengujian').on('change',function(){
     //     var id=$(this).val();

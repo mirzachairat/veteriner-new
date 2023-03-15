@@ -24,6 +24,8 @@ class CreateJenisSampelTable extends Migration
             $table->string('kondisi')->nullable();
             $table->string('kriteria')->nullable();
             $table->double('total_harga', 12, 2);
+            $table->integer('nilai')->nullable();
+            $table->string('diagnosa')->nullable();
             $table->timestamps();
         });
     }

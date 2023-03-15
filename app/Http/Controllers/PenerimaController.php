@@ -11,17 +11,21 @@ use App\Models\Jenis_harga;
 
 class PenerimaController extends Controller
 {
+    //menampilkan tabel pemohon 
     public function index()
     {
         $data = Progres::with('permohonan')->where('status',0)->get();
         return view('pages.penerima.penerima', compact('data'));
     }
 
+
+    //menampilkan tabel semua user yang telah di kirim untuk di cetak dokumen pdf    
     public function view_allform(){
         $data = Permohonan::with('jenis_sampel')->get();
         return view('pages.penerima.detail_penerima', compact('data'));
     }
 
+    //menampilkan data ke form inputan
     public function form_detail($id)
     {
         $data_detail = Permohonan::with('jenis_sampel')->where('id', $id)->get();
@@ -30,10 +34,10 @@ class PenerimaController extends Controller
     }
 
 
-    public function update_jenis_sampel(Request $request){
+    public function update_jenis_sampel(Request $request){ 
         Jenis_sampel::where('permohonan_id', $request->permohonan_id[0])->delete();
         $status_a = $request->status_delete;
-        $data_b = Progres::where('status', $status_a)->delete();
+        $data_a = Progres::where('status', $status_a)->delete();
         foreach ($request->permohonan_id as $index => $item) {
             $data_jenis = Jenis_sampel::create([
                 'permohonan_id' => $request->permohonan_id[$index],
@@ -43,9 +47,17 @@ class PenerimaController extends Controller
                 'harga_satuan' => $request->harga_satuan[$index],
                 'total_harga' => $request->total_harga[$index],
                 'bahan_pengawet' => $request->bahan_pengawet[$index],
-                 'kondisi' => $request->kondisi[$index],
-                 'kriteria' => $request->kriteria[$index],
-             ]);
+                'kondisi' => $request->kondisi[$index],
+                'kriteria' => $request->kriteria[$index],
+            ]);
+            Permohonan::where('id',$request->permohonan_id)->update([
+                'users_id' => $request->users_id,
+                'no_epi' => $request->no_epi,
+                'tgl_terima' => $request->tgl_terima,
+                'tgl_diserahkan_mt' => $request->tgl_diserahkan_mt,
+                'jumlah' => $request->jumlah_serluruhnya,
+                'jenis_hewan' => $request->jenis_hewan
+            ]);
          }
         
          $progress = Progres::create([

@@ -13,18 +13,30 @@
                     <div class="col-lg-12">
                         <form action="{{env('APP_URL')}}/penerima/update" method="POST">
                             @csrf
-                            @foreach($data_detail as $item)
-                            
                             <div class="form-group row">
-                                <label for="hewan" class="col-sm-2 col-form-label text-right">Jenis Hewan</label>
+                                <label for="tgl_terima" class="col-sm-2 col-form-label text-right">Tanggal Diterima</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" type="text" value="{{$item->jenis_hewan}}"name="jenis_hewan[]" id="hewan-0">
+                                    <input class="form-control" type="date" name="tgl_terima" id="tgl_terima[]">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="tgl_diserahkan_mt" class="col-sm-2 col-form-label text-right">Tanggal Diserahkan ke MT</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" type="date" name="tgl_diserahkan_mt" id="tgl_diserahkan_mt">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="no_epi" class="col-sm-2 col-form-label text-right">Nomor Epi</label>
                                 <div class="col-sm-6">
                                     <input class="form-control" type="text" name="no_epi" id="no_epi">
+                                </div>
+                            </div>
+                            @foreach($data_detail as $item)
+                            <input class="form-control" type="text" id="users_id" name="users_id" value="{{$item->users_id}}" hidden>
+                            <div class="form-group row">
+                                <label for="hewan" class="col-sm-2 col-form-label text-right">Jenis Hewan</label>
+                                <div class="col-sm-6">
+                                    <input class="form-control" type="text" value="{{$item->jenis_hewan}}" name="jenis_hewan" id="jenis_hewan">
                                 </div>
                             </div>
                             <!-- Contoh UJI/Jenis_sampel -->
@@ -49,7 +61,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                
+    
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="jumlah_contoh">Jumlah Contoh Uji</label>
@@ -73,32 +85,30 @@
                                                 <div class="col-sm-2">
                                                     <div class="form-group">
                                                         <label for="bahan_pengawet">Bahan Pengawet</label>
-                                                        <input type="text" class="form-control input-total_harga" id="bahan_pengawet-0" name="bahan_pengawet[]" required>
+                                                        <input type="text" class="form-control input-total_harga" id="bahan_pengawet-0" value="{{$sampel->bahan_pengawet}}" name="bahan_pengawet[]">
                                                     </div>
                                                 </div> 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="kondisi-0">Kondisi Contoh Uji</label>
-                                                        <select type="text" class="form-control" id="kondisi-0" name="kondisi[]" required>
-                                                            <option value selected disabled>=== PILIH KONDISI CONTOH UJI ===</option>
-                                                                <option value="baik">Baik</option>
-                                                                <option value="kurang baik">Kurang Baik</option>
+                                                        <select type="text" class="form-control" id="kondisi-0" name="kondisi[]">
+                                                                <option value="Baik">Baik</option>
+                                                                <option value="Kurang baik">Kurang baik</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="kriteria-0">KRITERIA</label>
-                                                        <select type="text" class="form-control" id="kriteria-0" name="kriteria[]" required>
-                                                            <option value selected disabled>=== PILIH KRITERIA ===</option>
-                                                                <option value="memenuhi">Memenuhi</option>
-                                                                <option value="kurang baik">Kurang Memenuhi</option>
+                                                        <select type="text" class="form-control" id="kriteria-0" name="kriteria[]">
+                                                                <option value="Memenuhi">Memenuhi</option>
+                                                                <option value="Kurang memenuhi">Kurang memenuhi</option>
                                                         </select>
                                                     </div>
-                                                </div>
+                                                </div>  
                                                 <input type="hidden" value = "0" id="status_delete" name="status_delete" >                                            
-                                                <input type="hidden" value = "1" id="status" name="status" >                                            
-                                                <input type="hidden" value = "2" id="workflow_id" name="workflow_id" >                                            
+                                                <input type="hidden" value = "1" id="status" name="status" >     
+                                                <input type="hidden" value = "3" id="workflow_id" name="workflow_id" >                                      
                                             </div>
                                         </div>
                                     </div><!--end card-body-->

@@ -18,9 +18,7 @@ class PermohonanSeeder extends Seeder
     {
         $Permohonan = Permohonan::create([
             "users_id" => "1",
-            "nama" => "mirza",
-            "no_hp" => "1732418234",
-            "jenis_hewan" => "kambing",
+            "jenis_hewan" => "kambing"
         ]);
         $Sampel = Jenis_sampel::create([
             "permohonan_id" => $Permohonan->id,

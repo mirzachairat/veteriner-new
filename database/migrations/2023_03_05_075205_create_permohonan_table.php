@@ -16,9 +16,13 @@ class CreatePermohonanTable extends Migration
         Schema::create('permohonan', function (Blueprint $table) {
             $table->id();
             $table->foreignId('users_id');
-            $table->string('nama');
             $table->string('jenis_hewan');
-            $table->string('no_hp');
+            $table->string('no_epi')->nullable();
+            $table->date('tgl_terima')->nullable();
+            $table->date('tgl_diserahkan_mt')->nullable();
+            $table->double('jumlah', 12, 2)->nullable();
+            $table->string('saran')->nullable();
+            $table->string('kesimpulan')->nullable();
             $table->timestamps();
         });
     }

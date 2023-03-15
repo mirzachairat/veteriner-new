@@ -17,9 +17,7 @@ class PermohonanController extends Controller
     {
         $permohonan = Permohonan::create([
             'users_id' => Auth::user()->id,
-            'no_hp' => Auth::user()->no_hp,
-            'nama' => Auth::user()->nama,
-            'jenis_hewan' => $request->jenis_hewan,
+            'jenis_hewan' => $request->jenis_hewan
         ]);
         foreach ($request->jenis_pengujian as $index => $item) {
             $data_jenis = Jenis_sampel::create([

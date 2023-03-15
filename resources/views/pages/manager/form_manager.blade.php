@@ -21,6 +21,7 @@
                                     <input class="form-control" type="text" value="{{$item->jenis_hewan}}"name="jenis_hewan[]" id="hewan-0">
                                 </div>
                             </div>
+    
                             <!-- Contoh UJI/Jenis_sampel -->
                             <div class="col-lg-12">
                                 <div class="card">

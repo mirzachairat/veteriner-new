@@ -9,12 +9,20 @@ use App\Models\Progres;
 
 class ManagerController extends Controller
 {
+    //menampilkan tabel pemohon yg blm di Approval
     public function index(){
         $data = Progres::with('permohonan')->where('status',1)->get();
         return view('pages.manager.manager', compact('data'));
-        // return $data;
     }
 
+
+    //menampilkan tabel semua user yang telah di approval untuk di cetak dokumen pdf
+    public function view_allform(){
+        $data = Permohonan::with('jenis_sampel')->get();
+        return view('pages.manager.detail_manager', compact('data'));
+    }
+
+    //Menampilkan 
     public function form_detail($id)
     {
         $data_detail = Permohonan::with('jenis_sampel')->where('id', $id)->get();

@@ -4,11 +4,11 @@
             <div class="brand">
                 <a href="index.html" class="logo">
                     <span>
-                        <img src="/assets/images/logo-sm.png" alt="logo-small" class="logo-sm">
+                        <img src="{{asset("assets/images/banten.png")}}" alt="logo-png" class="logo-sm">
                     </span>
                     <span>
-                        <img src="/assets/images/logo.png" alt="logo-large" class="logo-lg logo-light">
-                        <img src="/assets/images/logo-dark.png" alt="logo-large" class="logo-lg logo-dark">
+                        <img src="{{asset("assets/images/banten.png")}}" alt="logo-large" class="logo-lg logo-light">
+                        <span style="font-size:19px">LOVE BANTEN </span>{{-- <img src="{{asset("assets/images/logo-dark.png")}}" alt="logo-large" class="logo-lg logo-dark"> --}}
                     </span>
                 </a>
             </div>

@@ -13,8 +13,7 @@
                     <div class="col-lg-12">
                         <form action="{{env('APP_URL')}}/penyelia/update" method="POST">
                             @csrf
-                            @foreach($data_detail as $item)
-                            
+                            @foreach($data_detail as $item)    
                             <div class="form-group row">
                                 <label for="hewan" class="col-sm-2 col-form-label text-right">Jenis Hewan</label>
                                 <div class="col-sm-6">
@@ -24,7 +23,7 @@
                             <div class="form-group row">
                                 <label for="no_epi" class="col-sm-2 col-form-label text-right">Nomor Epi</label>
                                 <div class="col-sm-6">
-                                    <input class="form-control" type="text" name="no_epi" id="no_epi">
+                                    <input class="form-control" type="text" name="no_epi" id="no_epi" placeholder="{{$item->no_epi}}">
                                 </div>
                             </div>
                             <!-- Contoh UJI/Jenis_sampel -->
@@ -98,6 +97,13 @@
                                                         <input type="text" class="form-control input-nilai" id="nilai-0" name="nilai[]">
                                                     </div>
                                                 </div>
+                                                <div class="col-sm-2">
+                                                    <div class="form-group">
+                                                        <label for="diagnosa">Diagnosa</label>
+                                                        <input type="text" class="form-control input-diagnosa" id="diagnosa-0" name="diagnosa[]">
+                                                    </div>
+                                                </div>
+
                                                 <input type="hidden" value = "2" id="status_delete" name="status_delete" >                                            
                                                 <input type="hidden" value = "3" id="status" name="status" >                                            
                                                 <input type="hidden" value = "4" id="workflow_id" name="workflow_id" >                                            
@@ -109,6 +115,14 @@
                             </div><!--end col-->
                             <!-- END contoh UJI     -->
                             @endforeach
+                            <div class="form-group mb-0">
+                                <label for="saran">Saran</label>
+                                <textarea class="form-control" id="saran" name="saran"rows="3"></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <label for="kesimpulan">Kesimpulan</label>
+                                <textarea class="form-control" id="kesimpulan" name="kesimpulan" rows="3"></textarea>
+                            </div>
                             <button style="float:left" type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>

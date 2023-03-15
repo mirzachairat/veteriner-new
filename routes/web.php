@@ -42,14 +42,15 @@ Route::middleware(['auth'])->group(function () {
     //Module Penerima 
     Route::get('/penerima', [PenerimaController::class, 'index'])->name('penerima');
     Route::get('/form/penerima/{id}', [PenerimaController::class, 'form_detail']);
-    Route::get('/cetak/penerima', [PenerimaController::class, 'view_allform']);
     Route::get('/view/penerima/{id}', [DashboardController::class, 'detail']);
+    Route::get('/cetak/penerima', [PenerimaController::class, 'view_allform']);
     Route::post('/penerima/update', [PenerimaController::class, 'update_jenis_sampel']);
 
     //Mudulw Manager
     Route::get('/manager', [ManagerController::class, 'index']);
     Route::get('/form/manager/{id}', [ManagerController::class, 'form_detail']);
     Route::get('/view/manager/{id}', [DashboardController::class, 'detail']);
+    Route::get('/cetak/manager', [ManagerController::class, 'view_allform']);
     Route::post('/manager/update', [ManagerController::class, 'update_jenis_sampel']);
 
     //Module Penyelia
